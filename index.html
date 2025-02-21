@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakushka</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="side-menu">
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Галерея</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </div>
+        <style>
+            .menu-btn {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+                z-index: 2000;
+            }
+            
+            .menu-btn span {
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: #333;
+                margin: 6px 0;
+                transition: 0.3s;
+            }
+
+            .side-menu {
+                position: fixed;
+                top: 0;
+                left: -250px;
+                width: 250px;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.9);
+                transition: 0.3s;
+                z-index: 1500;
+            }
+
+            .side-menu.active {
+                left: 0;
+            }
+
+            .side-menu ul {
+                padding: 70px 0 0 0;
+                list-style: none;
+            }
+
+            .side-menu ul li {
+                padding: 15px 30px;
+            }
+
+            .side-menu ul li a {
+                color: #333;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+            .menu-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+
+            .menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        </style>
+        <script>
+            document.querySelector('.menu-btn').addEventListener('click', function() {
+                this.classList.toggle('active');
+                document.querySelector('.side-menu').classList.toggle('active');
+            });
+        </script>
+        <img src="photos/logo.png" alt="" class="logo">
+    </header>
+    <main>
+        <div class="info-btn">
+            <span class="arrow"></span>
+        </div>
+        <div class="info-panel">
+            <div class="info-content">
+                <img src="photos/photo2.JPG" alt="" class="info-image">
+                <div class="info-text">
+                    <h2>Давайте познакомимся</h2>
+                    <p>Меня зовут Марина, я практикующий психолог, таролог и ленорманщик. Я занимаюсь консультациями и проведением семинаров по таро и ленорману. Мои консультации помогают людям лучше понять себя и свое окружение, найти новые пути в жизни и достичь гармонии в отношениях.</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.querySelector('.info-btn').addEventListener('click', function() {
+                this.classList.toggle('active');
+                document.querySelector('.info-panel').classList.toggle('active');
+            });
+        </script>
+    </main>
+    <footer>
+        <p>© 2024 Все права защищены | Rakushka</p>
+    </footer>
+
+</body>
+</html>
