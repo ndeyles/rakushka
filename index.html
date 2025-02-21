@@ -16,10 +16,10 @@
         </div>
         <div class="side-menu">
             <ul>
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Галерея</a></li>
-                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Расклады</a></li>
+                <li><a href="#">Магические практики</a></li>
+                <li><a href="#">Курсы</a></li>
+                <li><a href="#">Магазин</a></li>
             </ul>
         </div>
         <style>
@@ -112,9 +112,65 @@
             });
         </script>
     </main>
+
+    <div class="reviews-section">
+        <div class="reviews-container">
+            <div class="reviews-track">
+                <div class="review-card">
+                    <img src="photos/avatar1.jpg" alt="Фото клиента" class="review-avatar">
+                    <p class="review-text">"Марина помогла мне разобраться в сложной ситуации. Её профессионализм и чуткость впечатляют!"</p>
+                    <p class="review-author">- Анна С.</p>
+                </div>
+                <div class="review-card">
+                    <img src="photos/avatar2.jpg" alt="Фото клиента" class="review-avatar">
+                    <p class="review-text">"Очень точные расклады и глубокий анализ ситуации. Рекомендую!"</p>
+                    <p class="review-author">- Михаил Д.</p>
+                </div>
+                <div class="review-card">
+                    <img src="photos/avatar3.jpg" alt="Фото клиента" class="review-avatar">
+                    <p class="review-text">"Благодаря консультации я смогла принять важное решение. Спасибо за помощь!"</p>
+                    <p class="review-author">- Елена В.</p>
+                </div>
+            </div>
+            <button class="review-nav prev">❮</button>
+            <button class="review-nav next">❯</button>
+        </div>
+    </div>
+
     <footer>
-        <p>© 2024 Все права защищены | Rakushka</p>
+        <p>© 2024 Marina Taro. Все права защищены</p>
     </footer>
+
+    <script>
+        const track = document.querySelector('.reviews-track');
+        const cards = document.querySelectorAll('.review-card');
+        const prevButton = document.querySelector('.review-nav.prev');
+        const nextButton = document.querySelector('.review-nav.next');
+        
+        let currentIndex = 0;
+        
+        function updateSlider() {
+            const cardWidth = cards[0].offsetWidth + 20; // 20px это gap
+            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }
+        
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        });
+        
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+                updateSlider();
+            }
+        });
+        
+        // Обновляем слайдер при изменении размера окна
+        window.addEventListener('resize', updateSlider);
+    </script>
 
 </body>
 </html>
